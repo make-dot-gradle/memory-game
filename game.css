@@ -1,0 +1,38 @@
+#game {
+    width: 100%;
+    height: 90vh;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+}
+.tile {
+    grid-column: var(--column);
+    grid-row:    var(--row);
+    background-color: #444;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    opacity: 1;
+}
+/*
+.tile-content.hidden {
+    display: none;
+}
+
+.tile.defeated > .tile-content {
+    display: none;
+}
+.tile.defeated {
+    background-color: black;
+}
+*/
+.tile, .tile-content {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.hidden {
+    opacity: 0;
+}
