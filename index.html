@@ -2,46 +2,28 @@
 <head>
   <meta charset="utf-8">
   <title>Izvēlēties pārus</title>
-  <script src="mkfromtmplt.js"></script>
-  <script>
-    var idx = 0;
-    const removeParent = el => {
-	    let parent = el.parentElement;
-	    parent.parentElement.removeChild(parent);
-    };
-    const makeRow = (idx, pair) => mkFromTmplt({
-	    tag: "div",
-	    attrs: {"class": "pair"},
-	    children: [
-		    {tag: "input", attrs: {"class": "car", value: pair[0]}},
-		    {tag: "input", attrs: {"class": "cdr", value: pair[1]}},
-		    {tag: "input", attrs: {type: "button", value: "X"}, listeners: {click: ev => removeParent(ev.target)}}
-	    ]
-    });
-    function addField(obj) {
-	    document.getElementById("fields").appendChild(makeRow(idx, obj));
-	    idx++;
-    }
-    function startGame() {
-	    const pairs = [...document.getElementsByClassName("pair")]
-		  .map(el => ["car", "cdr"].map(c => el.getElementsByClassName(c)[0].value));
-	    if (!pairs) {
-		    alert("No pairs provided!");
-		    return;
-	    }
-	    sessionStorage.setItem("pairs", JSON.stringify(pairs));
-	    document.location.href = "game.html";
-    }
-    window.addEventListener("load", function() {
-	    const data = sessionStorage.getItem("pairs");
-	    if (data === null) return;
-	    JSON.parse(data).forEach(addField);
-    });
-  </script>
+  <link rel="stylesheet" href="selection_screen.css">
+  <script src="utils.js"></script>
+  <script src="preset.js"></script>
+  <script src="selection_screen.js"></script>
 </head>
 <body>
   <form id="pairs">
+    <label for="preset-select">Izvēlēties jau gatavus pārus:</label>
+    <select id="preset-select">
+    </select>
+    <br>
+    <label for="sample-size">Mainīt to, cik pāru maksimāli ir vienā spēlē (jāraksta vai nu skaitlis, vai vārds <code>visi</code>):</label>
+    <input id="sample-size" type="text" onchange="updateSampleSize();">
+    <br>
+    <label for="download-button">Lejupielādēt šos pārus</label>
+    <input id="download-button" type="button" value="Lejupielādēt" onclick="download();">
+    <br>
+    <label for="upload-box">Ielādēt pārus no faila:</label>
+    <input id="upload-box" type="file" onchange="upload();">
+    <p>Ja teksta lauks sākas <code>!</code>, tas tiks uztverts kā URL, kas ved uz attēlu. Ja tas sākas ar <code>!#</code>, tad, sākot spēli, tiks prasīts failu augšupielādēt.</p>
     <input type="button" value="+" onclick="addField(['', '']);">
+   
     <div id="fields">
     </div>
     <input type="button" value="Spēlēt" onclick="startGame();">

@@ -1,0 +1,12 @@
+apples - !https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Pink_lady_and_cross_section.jpg/799px-Pink_lady_and_cross_section.jpg
+pears  - !https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Four_pears.jpg/800px-Four_pears.jpg
+oranges - !https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Orange_ungesch%C3%A4ltl.JPG/800px-Orange_ungesch%C3%A4ltl.JPG
+bananas - !https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Banana_and_cross_section.jpg/800px-Banana_and_cross_section.jpg
+mangoes - !https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/GntMango2.jpg/800px-GntMango2.jpg
+strawberries - !https://upload.wikimedia.org/wikipedia/commons/d/de/FraiseFruitPhoto.jpg
+raspberries - !https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Raspberries05.jpg/800px-Raspberries05.jpg
+blueberries - !https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Blueberries-In-Pack.jpg/695px-Blueberries-In-Pack.jpg
+melons - !https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Cucumis_melo_2_%28Piotr_Kuczynski%29.jpg/800px-Cucumis_melo_2_%28Piotr_Kuczynski%29.jpg
+watermelons - !https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/01266jfWatermelons_Philippines_textures_Apolonio_Samson_Market_Quezon_Cityfvf_06.jpg/800px-01266jfWatermelons_Philippines_textures_Apolonio_Samson_Market_Quezon_Cityfvf_06.jpg
+tomatoes - !https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Tomato_je.jpg/721px-Tomato_je.jpg
+avocadoes - !https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Avocado_with_cross_section_edit.jpg/800px-Avocado_with_cross_section_edit.jpg

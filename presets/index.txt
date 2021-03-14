@@ -1,0 +1,3 @@
+Augļi   - fruits
+Dārzeņi - vegetables
+Augļi (ar attēliem) - fruit_pictures

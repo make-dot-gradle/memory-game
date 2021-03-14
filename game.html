@@ -2,13 +2,52 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <script src="mkfromtmplt.js"></script>
+    <script src="utils.js"></script>
     <script src="game.js"></script>
     <link rel="stylesheet" href="game.css">
   </head>
   <body>
-    <div id="game">
-      
+    <div id="modal">
+      <div id="modal-content">
+	<p>Augšupielādēt failu <b><span id="file-to-upload"></span></b></p>
+	<input type="file" id="upload-box">
+      </div>
+    </div>
+    <a href="index.html"><img src="media/arrow.svg" height="16px" alt="Atpakaļ"></a>
+    <div id="game"> </div>
+    <div id="information-display">
+      <div id="victory" class="hidden">
+	<h2>Spēle uzvarēta!</h2>
+	<p><button type="button" onclick="newGame();">Sākt no jauna</button></p>
+      </div>
+
+      <div id="stats">
+	<div>
+	  Laiks:
+	  <hr>
+	  <div id="time">--:--</div>
+	</div>
+        <div>
+	  Nepareizi:
+	  <hr>
+	  <div class="stat" id="incorrect">0</div>
+	</div>
+	<div>
+	  Pareizi:
+	  <hr>
+	  <div class="stat" id="correct">0</div>
+	</div>
+	<div>
+	  Kopā:
+	  <hr>
+	  <div class="stat" id="total">0</div>
+	</div>
+	<div>
+	  Palikuši:
+	  <hr>
+	  <div class="stat" id="remaining">-</div>
+	</div>
+      </div>
     </div>
   </body>
 </html>

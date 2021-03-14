@@ -1,0 +1,12 @@
+apples - āboli
+pears  - bumbieri
+oranges - apelsīni
+bananas - banāni
+mangoes - mango
+strawberries - zemenes
+raspberries - avenes
+blueberries - mellenes
+melons - melones
+watermelons - arbūzi
+tomatoes - tomāti
+avocadoes - avokado

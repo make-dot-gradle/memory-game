@@ -11,3 +11,8 @@ function mkFromTmplt(tmplt) {
 		tmplt.children.forEach(c => el.append(mkFromTmplt(c)));
 	return el;
 }
+
+const shuffle = a => a
+      .map(x => ({sort: Math.random(), value: x}))
+      .sort((a, b) => a.sort - b.sort)
+      .map(x => x.value);

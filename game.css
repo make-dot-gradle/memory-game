@@ -1,38 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@font-face {
+    font-family: "7seg";
+    src: url("7segfont.ttf");
+}
+
+body {
+    font-family: Roboto;
+    width: 100vw;
+    height: 90vh;
+    margin: 0;
+}
+
+#time {
+    font-family: "7seg";
+    color: red;
+}
+
 #game {
     width: 100%;
-    height: 90vh;
+    height: 88%;
     display: grid;
-    grid-auto-columns: 1fr;
-    grid-auto-rows: 1fr;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-rows: minmax(0, 1fr);
+    background-color: black;
+    z-index: 1;
 }
 .tile {
     grid-column: var(--column);
     grid-row:    var(--row);
     background-color: #444;
     color: white;
+    user-select: none;
+    border: 1px solid black;
+    opacity: 1;
+    padding: 1em;
+}
+
+.embedded-image {
+    display: block;
+    object-position: center;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.tile-content {
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
-    opacity: 1;
-}
-/*
-.tile-content.hidden {
-    display: none;
 }
 
-.tile.defeated > .tile-content {
-    display: none;
+#information-display {
+    display: flex;
+    justify-content: space-between;
 }
-.tile.defeated {
-    background-color: black;
+
+#victory {
+    color: green;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
 }
-*/
+
 .tile, .tile-content {
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
 }
 
 .hidden {
-    opacity: 0;
+    opacity: 0 !important;
+}
+
+#stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#stats > div {
+    margin: 1em;
+    padding: 1em;
+    border: 5px solid black;
+    font-weight: lighter;
+    text-align: center;
+}
+
+.stat {
+    font-weight: bold;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000000;
+    background-color: #00000088;
+}
+
+#modal-content {
+    background-color: white;
+    padding: 20px;
 }
