@@ -101,4 +101,6 @@ window.addEventListener("load", function() {
 		loadPairs(JSON.parse(data));
 	}
 	loadPresetOptions();
+
+	document.querySelector("#sample-size").value = sessionStorage.getItem("sample-size");
 });
