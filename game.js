@@ -99,6 +99,7 @@ function handleClick(ev) {
 	}
 	if (stats.remaining === 0) {
 		document.getElementById("victory").classList.remove("hidden");
+		stats.cancelTimecount();
 	}
 }
 
@@ -175,18 +176,18 @@ function makeGrid(pairs) {
 
 async function newGame() {
 	let pairs = JSON.parse(sessionStorage.getItem("pairs"));
-	let sample_size = parseInt(sessionStorage.getItem("sample-size"));
-	if (sample_size)
-		pairs = shuffle(pairs).splice(0, parseInt(sample_size));
 	for (const elem of pairs.flat()) {
 		if (elem.startsWith("!#")) {
 			await requestUpload(elem.slice(2));
 		}
 	}
+	let sample_size = parseInt(sessionStorage.getItem("sample-size"));
+
+	if (sample_size)
+		pairs = shuffle(pairs).splice(0, parseInt(sample_size));
+	
 	document.getElementById("game").replaceWith(makeGrid(pairs));
 	document.getElementById("victory").classList.add("hidden");
-	if (stats !== undefined)
-		stats.cancelTimecount();
 	stats = new Stats(0, 0, pairs.length, Date.now());
 	stats.countTime();
 	stats.update();

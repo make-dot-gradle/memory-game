@@ -4,6 +4,6 @@ body {
     font-family: Roboto;
 }
 
-.invalid:focus {
+.invalid {
     outline-color: red;
 }

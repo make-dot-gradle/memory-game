@@ -37,7 +37,8 @@ async function loadPresetOptions() {
 		attrs: {value: "nopairs"},
 		children: ["(nav pāru)"]
 	};
-	const template = {
+	const value = sessionStorage.getItem("last-preset") || "nopairs";
+	const new_elemnt = mkFromTmplt({
 		tag: "select",
 		attrs: {id: "preset-select"},
 		children: [no_pairs, ...index.map(([name, file]) => ({
@@ -46,12 +47,15 @@ async function loadPresetOptions() {
 			children: [name]
 		}))],
 		listeners: {change: loadSelectedPreset}
-	}
-	document.getElementById("preset-select").replaceWith(mkFromTmplt(template));
+	});
+	new_elemnt.value = value;
+	document.getElementById("preset-select").replaceWith(new_elemnt);
 }
 async function loadSelectedPreset() {
+	const select = document.getElementById("preset-select");
 	document.getElementById("fields").innerHTML = "";
-	const preset = document.getElementById("preset-select").value;
+	const preset = select.value;
+	sessionStorage.setItem("last-preset", select.value);
 	if (preset === "nopairs") return;
 	const pairs = await fetchPreset(preset);
 	loadPairs(pairs);
@@ -61,6 +65,7 @@ function updateSampleSize() {
 	const input = el.value;
 	if (input === "visi") {
 		sessionStorage.removeItem("sample-size");
+		el.classList.remove("invalid");
 	} else {
 		const size = parseInt(input);
 		if (isNaN(size)) {
@@ -102,5 +107,5 @@ window.addEventListener("load", function() {
 	}
 	loadPresetOptions();
 
-	document.querySelector("#sample-size").value = sessionStorage.getItem("sample-size");
+	document.querySelector("#sample-size").value = sessionStorage.getItem("sample-size") || "visi";
 });
